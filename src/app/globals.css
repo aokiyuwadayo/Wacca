@@ -1,0 +1,123 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ============================================================
+ * YUWA Brand & shadcn/ui Theme (Tailwind 4 CSS-first config)
+ *
+ * 構成:
+ * 1. shadcn の必須トークン（components/ui/* が参照）を :root に定義
+ *    - primary を YUWA の brand (#4F46E5 / indigo-600) にマップ
+ *    - accent を YUWA の accent (#F59E0B / amber-500) にマップ
+ * 2. @theme inline で Tailwind ユーティリティに公開
+ * 3. YUWA 独自のブランドカラースケール (brand-50〜900) を別途定義
+ *
+ * 詳細: docs/brand-guidelines.md
+ * ============================================================ */
+
+:root {
+  /* Radius scale */
+  --radius: 0.625rem;
+
+  /* shadcn semantic tokens — light mode */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.21 0.034 264.665);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.034 264.665);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.034 264.665);
+
+  /* primary = YUWA brand (indigo-600 / #4F46E5) */
+  --primary: oklch(0.511 0.262 276.966);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.967 0.003 264.542);
+  --secondary-foreground: oklch(0.21 0.034 264.665);
+
+  --muted: oklch(0.967 0.003 264.542);
+  --muted-foreground: oklch(0.551 0.027 264.364);
+
+  /* accent = YUWA accent (amber-500 / #F59E0B) */
+  --accent: oklch(0.769 0.188 70.080);
+  --accent-foreground: oklch(0.21 0.034 264.665);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --border: oklch(0.928 0.006 264.531);
+  --input: oklch(0.928 0.006 264.531);
+  --ring: oklch(0.511 0.262 276.966);
+
+  color-scheme: light;
+}
+
+/* shadcn が参照する Tailwind ユーティリティを @theme inline で公開 */
+@theme inline {
+  /* Color utilities (bg-primary / text-foreground 等を有効化) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radius utilities */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Font families */
+  --font-sans:    var(--font-zen-kaku), var(--font-inter), "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  --font-display: var(--font-inter), var(--font-zen-kaku), sans-serif;
+  --font-mono:    var(--font-jetbrains-mono), Menlo, monospace;
+}
+
+/* ============================================================
+ * YUWA ブランドカラースケール
+ * shadcn の primary/accent に加えて、マーケティング系や
+ * カスタム UI で使う独自スケールを公開
+ * ============================================================ */
+
+@theme {
+  /* Brand: indigo-600 系 */
+  --color-brand-50:  oklch(0.962 0.018 272.314);
+  --color-brand-100: oklch(0.930 0.034 272.788);
+  --color-brand-200: oklch(0.870 0.065 274.039);
+  --color-brand-300: oklch(0.785 0.115 274.713);
+  --color-brand-400: oklch(0.673 0.182 276.935);
+  --color-brand-500: oklch(0.585 0.233 277.117);
+  --color-brand-600: oklch(0.511 0.262 276.966);   /* #4F46E5 */
+  --color-brand-700: oklch(0.457 0.240 277.023);
+  --color-brand-800: oklch(0.398 0.195 277.366);
+  --color-brand-900: oklch(0.359 0.144 278.697);
+  --color-brand: var(--color-brand-600);
+
+  /* Accent: amber-500 系 */
+  --color-warm-50:  oklch(0.987 0.022 95.277);
+  --color-warm-100: oklch(0.962 0.059 95.617);
+  --color-warm-200: oklch(0.924 0.120 95.746);
+  --color-warm-300: oklch(0.879 0.169 91.605);
+  --color-warm-400: oklch(0.828 0.189 84.429);
+  --color-warm-500: oklch(0.769 0.188 70.080);   /* #F59E0B */
+  --color-warm-600: oklch(0.666 0.179 58.318);
+  --color-warm-700: oklch(0.555 0.163 48.998);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="YUWA - サークル運営を、もっと温かく">
+  <title>YUWA</title>
+
+  <!-- 背景: 白 → 薄インディゴグラデーション -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#EEF2FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- アクセントバー（左側） -->
+  <rect x="0" y="0" width="12" height="630" fill="#4F46E5"/>
+
+  <!-- ロゴ -->
+  <text
+    x="120"
+    y="280"
+    font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+    font-weight="800"
+    font-size="180"
+    fill="#4F46E5"
+    letter-spacing="8"
+  >YUWA</text>
+
+  <!-- タグライン（英） -->
+  <text
+    x="120"
+    y="360"
+    font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+    font-weight="500"
+    font-size="32"
+    fill="#6B7280"
+    letter-spacing="2"
+  >Belong. Gather. Build together.</text>
+
+  <!-- タグライン（日） -->
+  <text
+    x="120"
+    y="470"
+    font-family="'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif"
+    font-weight="700"
+    font-size="48"
+    fill="#111827"
+  >サークル運営を、もっと温かく。</text>
+
+  <!-- フッターのドメイン -->
+  <text
+    x="120"
+    y="560"
+    font-family="'JetBrains Mono', monospace"
+    font-weight="500"
+    font-size="28"
+    fill="#F59E0B"
+  >yuwa.club</text>
+</svg>
