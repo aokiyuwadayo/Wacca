@@ -25,6 +25,8 @@ YUWA 実装には、コード以外に以下のアカウント・支払いが必
 
 ## 1. Supabase アカウント + プロジェクト作成
 
+> **エンジニア向け暫定方針**: PO からリモート接続情報を受け取るまでは、Supabase CLI のローカル環境で開発を進める。`supabase start` 後、`supabase status` に表示される API URL / anon key / service_role key を `.env.local` に設定する。
+
 ### 1.1 アカウント作成
 
 - [ ] https://supabase.com にアクセス
@@ -57,6 +59,32 @@ YUWA 実装には、コード以外に以下のアカウント・支払いが必
 本番と開発を分けたい場合:
 - [ ] 同じ手順で `yuwa-development` を別プロジェクトとして作成
 - [ ] **ただし無料枠は 2 プロジェクトまで**。MVP では本番 1 つで進めて、必要になったら追加でも OK
+
+### 1.5 ローカル Supabase（エンジニア用）
+
+リモート Supabase の接続情報が未共有でも、以下で Issue #12 以降の DB / Auth 実装に着手できます。
+
+```bash
+pnpm install
+supabase start
+supabase status
+```
+
+`supabase status` の値を `.env.local` に転記:
+
+- `API URL` → `NEXT_PUBLIC_SUPABASE_URL`
+- `anon key` → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `service_role key` → `SUPABASE_SERVICE_ROLE_KEY`
+
+ローカル Supabase Studio:
+
+- `http://127.0.0.1:54323`
+
+停止する場合:
+
+```bash
+supabase stop
+```
 
 ---
 

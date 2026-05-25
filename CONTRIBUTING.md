@@ -125,24 +125,35 @@ feat(auth): 招待コード経由のサインアップフロー実装
 - pnpm 11+
 - Git
 - GitHub アカウント
+- Docker Desktop（ローカル Supabase を使う場合）
+- Supabase CLI（ローカル Supabase を使う場合）
 
 ### 初期化後の標準フロー（Phase 1 完了後）
 ```bash
 git clone https://github.com/aokiyuwadayo/yuwa.git
 cd yuwa
-cp .env.example .env.local  # Supabase 接続情報など
 pnpm install
+
+# リモート Supabase の接続情報が未共有の場合はローカルで起動
+supabase start
+
+cp .env.example .env.local
+# `supabase status` の API URL / anon key / service_role key を .env.local に転記
+
 pnpm dev
 ```
 
 ### 環境変数
 
-`.env.local` に必要な変数（具体的な値は PO に共有依頼）:
+`.env.local` に必要な変数。リモート Supabase を使う場合は PO に共有依頼し、ローカル Supabase を使う場合は `supabase status` から取得してください。
+
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY` — サーバーサイドのみ
 - `ANONYMOUS_HASH_SALT` — 匿名ハッシュ用の固定 salt
 - `GOOGLE_OAUTH_CLIENT_ID` / `GOOGLE_OAUTH_CLIENT_SECRET`
+
+ローカル Supabase Studio は標準設定では `http://127.0.0.1:54323` で開けます。
 
 ---
 
