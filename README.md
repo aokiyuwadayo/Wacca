@@ -20,9 +20,18 @@
 
 ## 📂 その他のドキュメント
 
+### 設計・分析
+- 🎨 [ブランドビジュアル (brand-guidelines.md)](docs/brand-guidelines.md) — ロゴ・カラー・フォント・トーン
+- 🗂️ [データモデル ER 図 (data-model-diagram.md)](docs/data-model-diagram.md) — 12 テーブルの関係を Mermaid で視覚化
+- 🔍 [競合分析 (competitive-analysis.md)](docs/competitive-analysis.md) — Univ / Slack / Forms 等との比較・差別化
+
+### 規約・法務
 - ⚖ [利用規約 v1 ドラフト (legal/terms-of-service-v1-draft.md)](docs/legal/terms-of-service-v1-draft.md) — 法務レビュー前の暫定版
+
+### 運営テンプレート
 - 📨 [エンジニア招待文テンプレ (templates/engineer-invitation.md)](docs/templates/engineer-invitation.md) — エンジニアへの初回連絡用
 - 👥 [モデレーター候補ヒアリングテンプレ (templates/moderator-recruitment.md)](docs/templates/moderator-recruitment.md) — モデレーター募集時の説明用
+- 📣 [メンバー向けプレアナウンス (templates/member-pre-announcement.md)](docs/templates/member-pre-announcement.md) — ローンチ前後の告知文（部会・Slack・LINE）
 
 ---
 
