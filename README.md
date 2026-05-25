@@ -20,8 +20,14 @@
 
 ## 📂 その他のドキュメント
 
+### 開発者向け
+- 🤝 [CONTRIBUTING.md](CONTRIBUTING.md) — 開発フロー、コミット規約、PR ガイドライン
+- 🛡 [Code of Conduct](CODE_OF_CONDUCT.md) — コミュニティ行動規範
+- 🔐 [SECURITY.md](SECURITY.md) — 脆弱性報告先
+
 ### 設計・分析
 - 🎨 [ブランドビジュアル (brand-guidelines.md)](docs/brand-guidelines.md) — ロゴ・カラー・フォント・トーン
+- 🖼 [ブランドアセット (brand/)](docs/brand/) — ロゴ / ファビコン / OG image の SVG
 - 🗂️ [データモデル ER 図 (data-model-diagram.md)](docs/data-model-diagram.md) — 12 テーブルの関係を Mermaid で視覚化
 - 🔍 [競合分析 (competitive-analysis.md)](docs/competitive-analysis.md) — Univ / Slack / Forms 等との比較・差別化
 

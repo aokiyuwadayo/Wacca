@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 質問・相談（Slack）
+    url: https://example.com/slack
+    about: YUWA に関する質問・相談は Slack でも受け付けています（メンバー限定）
+  - name: 📨 運営チームへの直接連絡
+    url: https://github.com/aokiyuwadayo
+    about: 機密性のある内容は GitHub Issue ではなく直接連絡をお願いします
