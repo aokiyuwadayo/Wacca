@@ -12,8 +12,17 @@
 
 1. 📘 **[事業計画書 (business-plan.md)](docs/business-plan.md)** — なぜ作るのか、誰のためか、ビジョン
 2. 📋 **[要件定義 v0.1 (requirements-v0.1.md)](docs/requirements-v0.1.md)** — 何を作るのか、画面・データ・仕様
-3. 📊 **[現状スナップショット (status-2026-05-25.md)](docs/status-2026-05-25.md)** — 今ここまで進んでいる
-4. 🗺️ **[ロードマップ・進め方 (roadmap.md)](docs/roadmap.md)** — どう進めるか、体制、開発環境セットアップ
+3. 📋 **[要件定義 v0.2 ドラフト (requirements-v0.2.md)](docs/requirements-v0.2.md)** — 出欠 / スケジュール / 名簿管理の追加機能
+4. 📊 **[現状スナップショット (status-2026-05-25.md)](docs/status-2026-05-25.md)** — 今ここまで進んでいる
+5. 🗺️ **[ロードマップ・進め方 (roadmap.md)](docs/roadmap.md)** — どう進めるか、体制、開発環境セットアップ
+
+---
+
+## 📂 その他のドキュメント
+
+- ⚖ [利用規約 v1 ドラフト (legal/terms-of-service-v1-draft.md)](docs/legal/terms-of-service-v1-draft.md) — 法務レビュー前の暫定版
+- 📨 [エンジニア招待文テンプレ (templates/engineer-invitation.md)](docs/templates/engineer-invitation.md) — エンジニアへの初回連絡用
+- 👥 [モデレーター候補ヒアリングテンプレ (templates/moderator-recruitment.md)](docs/templates/moderator-recruitment.md) — モデレーター募集時の説明用
 
 ---
 
@@ -38,8 +47,11 @@
 **Phase 0（準備）完了 → Phase 1（環境構築）着手前**
 
 - ✅ 要件定義 v0.1 完了
+- ✅ 要件定義 v0.2 ドラフト完了
 - ✅ ブランド・リポ整備完了
 - ✅ ハンドオフ用ドキュメント整備完了
+- ✅ 利用規約 v1 ドラフト完了（レビュー待ち）
+- ✅ エンジニア招待文・モデレーター招集テンプレ完成
 - ⬜ コードはまだ書かれていない（リポは docs と README のみ）
 - 🟡 部員エンジニア 1 名がボランティアで実装担当することが決定（2026-05-25）
 
