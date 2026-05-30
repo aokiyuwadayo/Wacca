@@ -32,7 +32,10 @@ export async function createEvent(formData: FormData) {
       created_by: member.id,
       title,
       description,
-      starts_at: new Date(startsAt).toISOString(),
+      // datetime-local は TZ 情報を持たない。サークルは JST 運用なので
+      // 入力の壁時計時刻を JST(+09:00) として解釈し、UTC で保存する
+      // （サーバ TZ で解釈されて 9 時間ずれるのを防ぐ）。
+      starts_at: new Date(`${startsAt}:00+09:00`).toISOString(),
       location,
       capacity,
     })

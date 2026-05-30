@@ -84,18 +84,28 @@ async function loadNamesAndParticipants(events: EventRow[]) {
 const EVENT_COLUMNS =
   "id, organization_id, created_by, title, description, starts_at, location, capacity, status, created_at";
 
-const WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
-
-/** "6/15 (土) 13:00" 形式（JST 想定の表示用）。 */
+/**
+ * "6/15 (土) 13:00" 形式。**必ず JST(Asia/Tokyo)で表示**する。
+ * サーバ(Vercel)が UTC でも、サーバ側 getHours() に依存せず正しく JST 表示するため
+ * Intl + timeZone を使う（サーバ TZ 依存で時刻がずれるのを防ぐ）。
+ */
 export function formatEventDateTime(iso: string): string {
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return iso;
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
-  const w = WEEKDAYS[d.getDay()];
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mm = String(d.getMinutes()).padStart(2, "0");
-  return `${m}/${day} (${w}) ${hh}:${mm}`;
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("ja-JP", {
+      timeZone: "Asia/Tokyo",
+      month: "numeric",
+      day: "numeric",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    })
+      .formatToParts(d)
+      .map((p) => [p.type, p.value]),
+  );
+  return `${parts.month}/${parts.day} (${parts.weekday}) ${parts.hour}:${parts.minute}`;
 }
 
 export async function listEvents(
