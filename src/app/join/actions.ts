@@ -14,21 +14,28 @@ export async function startGoogleSignIn(formData: FormData) {
     .trim()
     .toUpperCase();
 
+  const h = await headers();
+  const host = h.get("host");
+  const isLocal =
+    !!host && (host.startsWith("localhost") || host.startsWith("127.0.0.1"));
+
   const cookieStore = await cookies();
   if (code) {
     cookieStore.set(INVITE_COOKIE, code, {
       httpOnly: true,
       sameSite: "lax",
-      secure: true,
+      // localhost(http) では secure cookie が送信されず招待が消えるため、本番のみ secure。
+      secure: process.env.NODE_ENV === "production",
       path: "/",
       maxAge: 600,
     });
   }
 
-  const h = await headers();
-  const host = h.get("host");
-  const proto = h.get("x-forwarded-proto") ?? "https";
-  const origin = host ? `${proto}://${host}` : "";
+  // localhost では x-forwarded-proto が無く、https 既定だと OAuth リダイレクトが壊れる。
+  // 本番ドメインを固定したい場合は NEXT_PUBLIC_SITE_URL を優先。
+  const proto = h.get("x-forwarded-proto") ?? (isLocal ? "http" : "https");
+  const origin =
+    process.env.NEXT_PUBLIC_SITE_URL ?? (host ? `${proto}://${host}` : "");
 
   const supabase = await createSupabaseServerClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
