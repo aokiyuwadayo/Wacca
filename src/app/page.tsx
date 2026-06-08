@@ -54,6 +54,9 @@ export default function Home() {
             <Link href="/join">招待コードでサインアップ</Link>
           </Button>
           <Button asChild variant="outline">
+            <Link href="/posts">みんなの声を見る</Link>
+          </Button>
+          <Button asChild variant="ghost">
             <a
               href="https://github.com/aokiyuwadayo/yuwa"
               target="_blank"
