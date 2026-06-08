@@ -1,17 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="YUWA - サークル運営を、もっと温かく">
-  <title>YUWA</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Wacca - サークル運営を、もっと温かく">
+  <title>Wacca</title>
 
-  <!-- 背景: 白 → 薄インディゴグラデーション -->
+  <!-- 背景: 白 → 薄シアングラデーション -->
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#ECFEFF"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="50%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#2DD4BF"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
 
   <!-- アクセントバー（左側） -->
-  <rect x="0" y="0" width="12" height="630" fill="#4F46E5"/>
+  <rect x="0" y="0" width="12" height="630" fill="url(#word)"/>
 
   <!-- ロゴ -->
   <text
@@ -20,9 +25,9 @@
     font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
     font-weight="800"
     font-size="180"
-    fill="#4F46E5"
-    letter-spacing="8"
-  >YUWA</text>
+    fill="url(#word)"
+    letter-spacing="2"
+  >Wacca</text>
 
   <!-- タグライン（英） -->
   <text
@@ -52,6 +57,6 @@
     font-family="'JetBrains Mono', monospace"
     font-weight="500"
     font-size="28"
-    fill="#F59E0B"
-  >yuwa.club</text>
+    fill="#0EA5E9"
+  >wacca.club</text>
 </svg>

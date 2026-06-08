@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <!-- Wacca 背景パターン: 白地に水色(cyan/sky)系の三角形を散らした洗練版。
+       600x600 でシームレスにタイルする。塗り・アウトライン・淡グレーを混在。 -->
+  <defs>
+    <polygon id="t" points="0,-57.74 50,28.87 -50,28.87" />
+  </defs>
+  <g opacity="0.9" stroke-linejoin="round">
+    <!-- row 1 -->
+    <use href="#t" transform="translate(92 82) rotate(14) scale(0.92)" fill="#bae6fd" />
+    <use href="#t" transform="translate(252 70) rotate(-24) scale(0.55)" fill="none" stroke="#38bdf8" stroke-width="4.5" vector-effect="non-scaling-stroke" />
+    <use href="#t" transform="translate(420 104) rotate(196) scale(0.92)" fill="#eef3f7" />
+    <use href="#t" transform="translate(540 76) rotate(10) scale(0.5)" fill="#7dd3fc" fill-opacity="0.7" />
+    <!-- row 2 -->
+    <use href="#t" transform="translate(150 232) rotate(190) scale(0.74)" fill="none" stroke="#0ea5e9" stroke-width="4.5" vector-effect="non-scaling-stroke" opacity="0.75" />
+    <use href="#t" transform="translate(332 246) rotate(24) scale(1.06)" fill="#38bdf8" fill-opacity="0.42" />
+    <use href="#t" transform="translate(500 270) rotate(-14) scale(0.6)" fill="#bae6fd" />
+    <!-- row 3 -->
+    <use href="#t" transform="translate(84 384) rotate(208) scale(0.58)" fill="#e0f2fe" />
+    <use href="#t" transform="translate(250 372) rotate(28) scale(0.86)" fill="none" stroke="#38bdf8" stroke-width="4.5" vector-effect="non-scaling-stroke" />
+    <use href="#t" transform="translate(440 400) rotate(192) scale(0.62)" fill="#7dd3fc" fill-opacity="0.62" />
+    <use href="#t" transform="translate(556 372) rotate(-18) scale(0.46)" fill="none" stroke="#0ea5e9" stroke-width="4.5" vector-effect="non-scaling-stroke" opacity="0.7" />
+    <!-- row 4 -->
+    <use href="#t" transform="translate(140 520) rotate(-22) scale(0.72)" fill="#7dd3fc" fill-opacity="0.55" />
+    <use href="#t" transform="translate(322 540) rotate(16) scale(0.5)" fill="#eef3f7" />
+    <use href="#t" transform="translate(478 512) rotate(204) scale(0.8)" fill="#bae6fd" />
+    <use href="#t" transform="translate(572 552) rotate(34) scale(0.42)" fill="#38bdf8" fill-opacity="0.4" />
+  </g>
+</svg>

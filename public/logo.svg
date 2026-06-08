@@ -1,12 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" role="img" aria-label="YUWA">
-  <title>YUWA</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" role="img" aria-label="Wacca">
+  <title>Wacca</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="50%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#2DD4BF"/>
+    </linearGradient>
+  </defs>
   <text
-    x="0"
+    x="4"
     y="60"
     font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
     font-weight="800"
-    font-size="64"
-    fill="#4F46E5"
-    letter-spacing="4"
-  >YUWA</text>
+    font-size="60"
+    fill="url(#g)"
+    letter-spacing="1"
+  >Wacca</text>
 </svg>

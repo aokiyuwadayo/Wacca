@@ -2,14 +2,14 @@
 @import "tw-animate-css";
 
 /* ============================================================
- * YUWA Brand & shadcn/ui Theme (Tailwind 4 CSS-first config)
+ * Wacca Brand & shadcn/ui Theme (Tailwind 4 CSS-first config)
  *
  * 構成:
  * 1. shadcn の必須トークン（components/ui/* が参照）を :root に定義
- *    - primary を YUWA の brand (#4F46E5 / indigo-600) にマップ
- *    - accent を YUWA の accent (#F59E0B / amber-500) にマップ
+ *    - primary を Wacca の brand (#2563EB / blue-600) にマップ
+ *    - accent を Wacca の teal / 青緑 (#14B8A6 / teal-500) にマップ
  * 2. @theme inline で Tailwind ユーティリティに公開
- * 3. YUWA 独自のブランドカラースケール (brand-50〜900) を別途定義
+ * 3. Wacca のブランドカラースケール (brand=青 / teal=青緑 / warm=黄) を別途定義
  *
  * 詳細: docs/brand-guidelines.md
  * ============================================================ */
@@ -26,8 +26,8 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.21 0.034 264.665);
 
-  /* primary = YUWA brand (indigo-600 / #4F46E5) */
-  --primary: oklch(0.511 0.262 276.966);
+  /* primary = Wacca brand (blue-600 / #2563EB) */
+  --primary: oklch(0.546 0.245 262.881);
   --primary-foreground: oklch(0.985 0 0);
 
   --secondary: oklch(0.967 0.003 264.542);
@@ -36,8 +36,8 @@
   --muted: oklch(0.967 0.003 264.542);
   --muted-foreground: oklch(0.551 0.027 264.364);
 
-  /* accent = YUWA accent (amber-500 / #F59E0B) */
-  --accent: oklch(0.769 0.188 70.080);
+  /* accent = Wacca teal / 青緑 (teal-500 / #14B8A6) */
+  --accent: oklch(0.704 0.14 182.503);
   --accent-foreground: oklch(0.21 0.034 264.665);
 
   --destructive: oklch(0.577 0.245 27.325);
@@ -45,7 +45,7 @@
 
   --border: oklch(0.928 0.006 264.531);
   --input: oklch(0.928 0.006 264.531);
-  --ring: oklch(0.511 0.262 276.966);
+  --ring: oklch(0.546 0.245 262.881);
 
   color-scheme: light;
 }
@@ -92,32 +92,57 @@
  * ============================================================ */
 
 @theme {
-  /* Brand: indigo-600 系 */
-  --color-brand-50:  oklch(0.962 0.018 272.314);
-  --color-brand-100: oklch(0.930 0.034 272.788);
-  --color-brand-200: oklch(0.870 0.065 274.039);
-  --color-brand-300: oklch(0.785 0.115 274.713);
-  --color-brand-400: oklch(0.673 0.182 276.935);
-  --color-brand-500: oklch(0.585 0.233 277.117);
-  --color-brand-600: oklch(0.511 0.262 276.966);   /* #4F46E5 */
-  --color-brand-700: oklch(0.457 0.240 277.023);
-  --color-brand-800: oklch(0.398 0.195 277.366);
-  --color-brand-900: oklch(0.359 0.144 278.697);
+  /* Brand: blue-600 系（青） */
+  --color-brand-50:  oklch(0.970 0.014 254.604);
+  --color-brand-100: oklch(0.932 0.032 255.585);
+  --color-brand-200: oklch(0.882 0.059 254.128);
+  --color-brand-300: oklch(0.809 0.105 251.813);
+  --color-brand-400: oklch(0.707 0.165 254.624);
+  --color-brand-500: oklch(0.623 0.214 259.815);
+  --color-brand-600: oklch(0.546 0.245 262.881);   /* #2563EB */
+  --color-brand-700: oklch(0.488 0.243 264.376);
+  --color-brand-800: oklch(0.424 0.199 265.638);
+  --color-brand-900: oklch(0.379 0.146 265.522);
   --color-brand: var(--color-brand-600);
 
-  /* Accent: amber-500 系 */
-  --color-warm-50:  oklch(0.987 0.022 95.277);
-  --color-warm-100: oklch(0.962 0.059 95.617);
-  --color-warm-200: oklch(0.924 0.120 95.746);
-  --color-warm-300: oklch(0.879 0.169 91.605);
-  --color-warm-400: oklch(0.828 0.189 84.429);
-  --color-warm-500: oklch(0.769 0.188 70.080);   /* #F59E0B */
-  --color-warm-600: oklch(0.666 0.179 58.318);
-  --color-warm-700: oklch(0.555 0.163 48.998);
+  /* Teal: teal-500 系（青緑） */
+  --color-teal-50:  oklch(0.984 0.014 180.720);
+  --color-teal-100: oklch(0.953 0.051 180.801);
+  --color-teal-200: oklch(0.910 0.096 180.426);
+  --color-teal-300: oklch(0.855 0.138 181.071);
+  --color-teal-400: oklch(0.777 0.152 181.912);
+  --color-teal-500: oklch(0.704 0.140 182.503);   /* #14B8A6 */
+  --color-teal-600: oklch(0.600 0.118 184.704);
+  --color-teal-700: oklch(0.511 0.096 186.391);
+  --color-teal-800: oklch(0.437 0.078 188.216);
+  --color-teal-900: oklch(0.386 0.063 188.416);
+  --color-teal: var(--color-teal-500);
+
+  /* Accent: yellow-400 系（黄色） */
+  --color-warm-50:  oklch(0.987 0.026 102.212);
+  --color-warm-100: oklch(0.973 0.071 103.193);
+  --color-warm-200: oklch(0.945 0.129 101.540);
+  --color-warm-300: oklch(0.905 0.182 98.111);
+  --color-warm-400: oklch(0.852 0.199 91.936);   /* #FACC15 */
+  --color-warm-500: oklch(0.795 0.184 86.047);
+  --color-warm-600: oklch(0.681 0.162 75.834);
+  --color-warm-700: oklch(0.554 0.135 66.442);
+  --color-warm: var(--color-warm-400);
 }
 
 body {
-  background: var(--color-background);
+  /* 白地に水色(cyan/sky)系の三角形を散らした洗練パターン（Memphis 風）。
+     中央（本文を読むエリア）は白いヴィネットでパターンを抜き、可読性を確保。
+     三角形は周辺だけに残してフレームのように効かせる。viewport 固定。 */
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(36rem 34rem at 50% 42%,
+      #ffffff 0%, #ffffff 40%, rgba(255, 255, 255, 0) 100%),
+    url("/bg-triangles.svg");
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, 560px 560px;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
   color: var(--color-foreground);
   font-family: var(--font-sans);
 }
