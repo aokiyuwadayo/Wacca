@@ -22,18 +22,18 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "YUWA",
-    template: "%s | YUWA",
+    default: "Wacca",
+    template: "%s | Wacca",
   },
   description: "サークル運営を、もっと温かく。",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "YUWA",
+    title: "Wacca",
     description: "サークル運営を、もっと温かく。",
     url: "https://yuwa.club",
-    siteName: "YUWA",
+    siteName: "Wacca",
     locale: "ja_JP",
     type: "website",
   },

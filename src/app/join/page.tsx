@@ -35,7 +35,9 @@ export default async function JoinPage({
   return (
     <main className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center gap-6 px-6 py-16">
       <div className="text-center">
-        <h1 className="font-display text-3xl font-bold text-brand-600">YUWA</h1>
+        <h1 className="font-display bg-linear-to-r from-brand-600 via-sky-500 to-teal-400 bg-clip-text text-3xl font-bold text-transparent">
+          Wacca
+        </h1>
         <p className="mt-1 text-sm text-muted-foreground">
           サークルに参加する
         </p>
