@@ -140,6 +140,47 @@ end $$;
 
 reset role;
 
+-- ============================================================
+-- Test D: event_participants トリガ（過去イベントへの参加ブロック）
+-- ============================================================
+do $$
+declare
+  future_event uuid;
+  past_event uuid;
+  past_blocked boolean := false;
+begin
+  insert into public.events (organization_id, created_by, title, starts_at)
+  values (
+    '00000000-0000-4000-8000-000000000001',
+    '33333333-3333-4333-8333-333333333333',
+    '未来のイベント',
+    now() + interval '7 days'
+  )
+  returning id into future_event;
+
+  insert into public.event_participants (event_id, member_id)
+  values (future_event, '33333333-3333-4333-8333-333333333333');
+
+  insert into public.events (organization_id, created_by, title, starts_at)
+  values (
+    '00000000-0000-4000-8000-000000000001',
+    '33333333-3333-4333-8333-333333333333',
+    '過去のイベント',
+    now() - interval '1 day'
+  )
+  returning id into past_event;
+
+  begin
+    insert into public.event_participants (event_id, member_id)
+    values (past_event, '33333333-3333-4333-8333-333333333333');
+  exception when others then
+    if sqlerrm like '%already started%' then past_blocked := true; end if;
+  end;
+
+  assert past_blocked, 'D1 past event participation should be blocked';
+  raise notice 'Test D (event participation rejects past events): PASS';
+end $$;
+
 \echo '==================================================='
 \echo 'ALL LOGIC TESTS PASSED'
 \echo '==================================================='

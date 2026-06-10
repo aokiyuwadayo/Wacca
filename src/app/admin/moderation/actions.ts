@@ -19,7 +19,7 @@ export async function approvePost(postId: string): Promise<ModerationResult> {
 
   const admin = createSupabaseAdminClient();
 
-  const { error } = await admin
+  const { data: updated, error } = await admin
     .from("posts")
     .update({
       status: "approved",
@@ -28,14 +28,20 @@ export async function approvePost(postId: string): Promise<ModerationResult> {
     })
     .eq("id", postId)
     .eq("organization_id", moderator.organization_id)
-    .eq("status", "pending");
+    .eq("status", "pending")
+    .select("id")
+    .maybeSingle();
   if (error) return { ok: false, error: "承認に失敗しました。" };
+  if (!updated) {
+    return { ok: false, error: "対象の投稿はすでに処理済みです。" };
+  }
 
-  await admin.from("moderation_actions").insert({
+  const { error: logError } = await admin.from("moderation_actions").insert({
     post_id: postId,
     moderator_id: moderator.id,
     action: "approve",
   });
+  if (logError) return { ok: false, error: "操作ログの記録に失敗しました。" };
 
   revalidatePath("/admin/moderation");
   revalidatePath("/posts");
@@ -54,20 +60,26 @@ export async function rejectPost(
 
   const admin = createSupabaseAdminClient();
 
-  const { error } = await admin
+  const { data: updated, error } = await admin
     .from("posts")
     .update({ status: "rejected" })
     .eq("id", postId)
     .eq("organization_id", moderator.organization_id)
-    .eq("status", "pending");
+    .eq("status", "pending")
+    .select("id")
+    .maybeSingle();
   if (error) return { ok: false, error: "却下に失敗しました。" };
+  if (!updated) {
+    return { ok: false, error: "対象の投稿はすでに処理済みです。" };
+  }
 
-  await admin.from("moderation_actions").insert({
+  const { error: logError } = await admin.from("moderation_actions").insert({
     post_id: postId,
     moderator_id: moderator.id,
     action: "reject",
     reason: reason?.trim() || null,
   });
+  if (logError) return { ok: false, error: "操作ログの記録に失敗しました。" };
 
   revalidatePath("/admin/moderation");
   return { ok: true };
@@ -89,12 +101,15 @@ export async function banPostAuthor(
 
   const { data: post, error: fetchError } = await admin
     .from("posts")
-    .select("author_hash")
+    .select("author_hash, status")
     .eq("id", postId)
     .eq("organization_id", moderator.organization_id)
     .maybeSingle();
   if (fetchError || !post) {
     return { ok: false, error: "対象の投稿が見つかりません。" };
+  }
+  if (post.status !== "pending") {
+    return { ok: false, error: "対象の投稿はすでに処理済みです。" };
   }
 
   const { error: banError } = await admin.from("banned_hashes").upsert(
@@ -109,19 +124,21 @@ export async function banPostAuthor(
   if (banError) return { ok: false, error: "BAN に失敗しました。" };
 
   // 同一ハッシュの承認待ち投稿をまとめて却下
-  await admin
+  const { error: rejectError } = await admin
     .from("posts")
     .update({ status: "rejected" })
     .eq("organization_id", moderator.organization_id)
     .eq("author_hash", post.author_hash)
     .eq("status", "pending");
+  if (rejectError) return { ok: false, error: "投稿の却下に失敗しました。" };
 
-  await admin.from("moderation_actions").insert({
+  const { error: logError } = await admin.from("moderation_actions").insert({
     post_id: postId,
     moderator_id: moderator.id,
     action: "ban_hash",
     reason: reason?.trim() || null,
   });
+  if (logError) return { ok: false, error: "操作ログの記録に失敗しました。" };
 
   revalidatePath("/admin/moderation");
   revalidatePath("/posts");

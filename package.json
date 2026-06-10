@@ -1,8 +1,8 @@
 {
-  "name": "yuwa",
+  "name": "wacca",
   "version": "0.1.0",
   "private": true,
-  "description": "YUWA - サークル運営を、もっと温かく",
+  "description": "Wacca - サークル運営を、もっと温かく",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
