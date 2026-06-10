@@ -60,7 +60,7 @@ export default function Home() {
           </Button>
           <Button asChild variant="ghost">
             <a
-              href="https://github.com/aokiyuwadayo/yuwa"
+              href="https://github.com/aokiyuwadayo/Wacca"
               target="_blank"
               rel="noopener noreferrer"
             >

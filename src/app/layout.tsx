@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wacca",
     description: "サークル運営を、もっと温かく。",
-    url: "https://yuwa.club",
+    url: "https://github.com/aokiyuwadayo/Wacca",
     siteName: "Wacca",
     locale: "ja_JP",
     type: "website",
