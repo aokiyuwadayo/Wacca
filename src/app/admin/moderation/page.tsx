@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { listPendingModerationPosts, requireModerator } from "@/lib/moderation";
@@ -21,6 +22,16 @@ export default async function ModerationPage() {
           承認待ちの投稿 {posts.length} 件。投稿者は匿名ハッシュ先頭 4 文字のみ
           表示されます。
         </p>
+        {moderator.role === "admin" && (
+          <p className="text-sm">
+            <Link
+              href="/admin/invites"
+              className="text-brand-600 hover:underline"
+            >
+              → 招待コード管理へ
+            </Link>
+          </p>
+        )}
       </header>
 
       {posts.length === 0 ? (
