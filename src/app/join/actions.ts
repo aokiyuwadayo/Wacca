@@ -44,7 +44,10 @@ export async function startGoogleSignIn(formData: FormData) {
   });
 
   if (error || !data?.url) {
-    throw new Error(error?.message ?? "Google サインインの開始に失敗しました");
+    // 例外でエラー画面に落とさず、join ページのインラインエラー表示に戻す。
+    const params = new URLSearchParams({ error: "oauth_start" });
+    if (code) params.set("code", code);
+    redirect(`/join?${params.toString()}`);
   }
 
   redirect(data.url);

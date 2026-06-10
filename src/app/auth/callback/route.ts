@@ -22,13 +22,18 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(`${origin}/join?error=auth`);
   }
 
-  const result = await ensureMemberForUser(
-    data.user.id,
-    data.user.user_metadata,
-  );
+  let result;
+  try {
+    result = await ensureMemberForUser(data.user.id, data.user.user_metadata);
+  } catch {
+    // RPC 失敗時も 500 にせず join に戻す。半端なセッションは残さない。
+    await supabase.auth.signOut();
+    return NextResponse.redirect(`${origin}/join?error=signup_failed`);
+  }
 
   if (result === "no_invite") {
     // セッションは張られているが member が無い → 招待が必要。
+    await supabase.auth.signOut();
     return NextResponse.redirect(`${origin}/join?error=need_invite`);
   }
 

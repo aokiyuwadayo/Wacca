@@ -35,7 +35,7 @@ begin
     raise exception 'participant must be an active member';
   end if;
 
-  select organization_id, status, capacity
+  select organization_id, status, capacity, starts_at
   into ev
   from public.events
   where id = new.event_id;
@@ -50,6 +50,10 @@ begin
 
   if ev.status <> 'open' then
     raise exception 'event is not open for participation';
+  end if;
+
+  if ev.starts_at <= now() then
+    raise exception 'event has already started';
   end if;
 
   if ev.capacity is not null then

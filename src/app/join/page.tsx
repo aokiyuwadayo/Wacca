@@ -19,6 +19,10 @@ const ERROR_MESSAGES: Record<string, string> = {
     "有効な招待コードが必要です。運営から受け取った招待リンクから開いてください。",
   auth: "サインインに失敗しました。もう一度お試しください。",
   missing_code: "認証コードが取得できませんでした。もう一度お試しください。",
+  oauth_start:
+    "Google サインインを開始できませんでした。時間をおいて再度お試しください。",
+  signup_failed:
+    "参加処理に失敗しました。時間をおいて再度お試しください。解決しない場合は運営にお問い合わせください。",
 };
 
 export default async function JoinPage({
