@@ -64,7 +64,10 @@ returns text
 language sql
 stable
 security definer
-set search_path = public
+-- Supabase クラウドでは pgcrypto(digest) が extensions スキーマに入るため、
+-- public のみだと digest が解決できない。ローカル(public 配置)では
+-- extensions スキーマが無くても search_path は単に無視されるので両対応。
+set search_path = public, extensions
 as $$
   select encode(
     digest(member_id::text || organizations.anonymity_salt, 'sha256'),
