@@ -23,12 +23,18 @@ export default async function ModerationPage() {
           表示されます。
         </p>
         {moderator.role === "admin" && (
-          <p className="text-sm">
+          <p className="flex gap-4 text-sm">
             <Link
               href="/admin/invites"
               className="text-brand-600 hover:underline"
             >
               → 招待コード管理へ
+            </Link>
+            <Link
+              href="/admin/members"
+              className="text-brand-600 hover:underline"
+            >
+              → メンバー名簿へ
             </Link>
           </p>
         )}

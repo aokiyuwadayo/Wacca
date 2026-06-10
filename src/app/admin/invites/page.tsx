@@ -56,7 +56,13 @@ export default async function InvitesPage() {
         <p className="text-sm text-muted-foreground">
           招待コードの発行・無効化と、誰がどのコードで加入したかを確認できます。
         </p>
-        <p className="text-sm">
+        <p className="flex gap-4 text-sm">
+          <Link
+            href="/admin/members"
+            className="text-brand-600 hover:underline"
+          >
+            → メンバー名簿へ
+          </Link>
           <Link
             href="/admin/moderation"
             className="text-brand-600 hover:underline"
